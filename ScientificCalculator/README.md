@@ -39,17 +39,17 @@ SYMBOL             | DESCRIPTION
 
 ### INSTALLATION
 
-Download and extract the zip below.
+Download and extract the zip from below.
 
-> [Hiculator.zip]()
+> [JavaUtils.zip]()
 
 ### USAGE
 
-You can use this program both in your code and with the command line (requires at least jre installed).
+You can use this program both in your code and with the command line (requires at least **jre** installed).
 
 #### CODE
 
-To use this class in your java project, you **MUST** add the directory `.../ScientificCalculator/` (in the zip) to your class path replacing `...` with the directory path to where you extracted the zip file in order to add the class to your project,
+To use this class in your java project, you **MUST** add the path `.../ScientificCalculator/` to your class path replacing `...` with the path to the the directory `ScientificCalculator` found in the zip file in order to add the class to your project.
 
 ##### SYNTAX
 
@@ -122,19 +122,19 @@ Takes a **String** containing a mathematical expression and an `int` used to rou
 ```java
 public static final String evaluateToWords (String expression, int roundTo)
 ```
-Similar to the above method but returns the answer in words using `Hiculator.DELIMETER_DEFAULT` the default delimeter/separator for the words, and format `NumberToWord.FORMAT_DEFAULT` as the output format of the answer.
+Similar to the above method but returns the answer in words using `Hiculator.DELIMETER_DEFAULT` as the default delimeter/separator for the words, and format `NumberToWord.FORMAT_DEFAULT` as the output format of the answer.
 
 ```java
 public static final String evaluateToWords (String expression, int roundTo, int format)
 ```
 Similar to the above methods, allowing a constant (one of the below) to specify the output format of the words in the answer.
 
-Use any of the constants in class `jorex.programs.ntw.NumberToWord` below to specify the format above.
+Use any of the constants in the class `jorex.programs.ntw.NumberToWord` below to specify the format above.
 
 ```java
 public static final int FORMAT_DEFAULT
 ```
-Specifies all output to be converted to lower case. If no format is specified, this is the default output format of the words.
+Specifies all output to be converted to lower case. If no format or a wrong format is specified, this is the default output format of the words.
 
 ```java
 public static final int FORMAT_ALL_UPPERCASE
@@ -151,6 +151,7 @@ public static final int FORMAT_FIRST_LETTER_UPPER_CASE_ALL
 ```
 Specifies conversion of the first letter of each word to be converted to upper case.
 
+
 ```java
 public static final String evaluateToWords (String expression, int roundTo, String delimeter)
 ```
@@ -161,17 +162,18 @@ public static final String evaluateToWords (String expression, int roundTo, int 
 ```
 **EXPERIMENTAL**
 
-Similar to the above methods, allowing an `int` used as a range for formatting the answer. This may only be used with the format below.
+Similar to the above methods, allowing a special format (below) and an `int` used as a range for formatting the answer. This may only be used with the format below.
 
 ```java
 public static final int FORMAT_FIRST_LETTER_UPPER_CASE_RANGE
 ```
 Specifies conversion of the first letter every after `range` digits in the answer from the right to upper case. It requires a range to be specified with the above method.
 
+
 ```java
 public static final String evaluateToWords (String expression, int roundTo, String delimeter, int format)
 ```
-Similar to the above methods but allows a `String` delimeter/separator and a constant for the output format.
+Similar to the above methods but allows a `String` delimeter/separator and a format constant.
 
 ```java
 public static final String evaluateToWords (String expression, int roundTo, String delimeter, int format, int range)
@@ -182,7 +184,7 @@ Similar to the above methods, allowing a delimeter/separator, a format constant 
 
 #### COMMAND LINE
 
-You must at least have **jre** installed on your device. See how to install from [here](https://www.google.com/).
+You must at least have **jre** installed on your device.
 
 ##### COMMAND
 
@@ -262,7 +264,7 @@ the last option ovewrites any preceding ones.
 
 ##### EXAMPLE
 
-Change to the directory to where you extracted the zip file, then excecute included class supplying any of the desired options above. (options must be the last)
+Change to the directory `JavaUtils` (in the zip file), then excecute included class supplying any of the desired options above. (options must be the last)
 
 ```shell
 java -cp ./ScientificCalculator/ jorex.programs.calc.Hiculator
