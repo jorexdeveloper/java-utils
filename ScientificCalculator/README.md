@@ -263,7 +263,7 @@ the last option ovewrites any preceding ones.
 
 ##### EXAMPLE
 
-Change to the directory `JavaUtils` (in the zip file), then excecute included class supplying any of the desired options above (options must be the last).
+Change to the directory `JavaUtils-root` (in the zip file), then excecute included class supplying any of the desired options above (options must be the last).
 
 ```shell
 java -cp ./ScientificCalculator/ jorex.programs.calc.Hiculator
