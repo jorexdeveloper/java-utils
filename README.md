@@ -5,7 +5,7 @@ Useful Java Utility Programs.
 
 #### Programs
 
-* [Scientific Calculator]()
+* [Scientific Calculator](https://github.com/jorexdeveloper/JavaUtils/tree/root/ScientificCalculator)
 
 #### Author : Jore
 
