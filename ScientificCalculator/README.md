@@ -18,8 +18,8 @@ OPERATION      | DESCRIPTION
 ` × ` or ` * ` | For multiplication
 ` + `          | For addition
 ` - `          | For subtraction
-` ² `          | For raising a number to power
-` ³ `          | For raising a number to power
+` ² `          | For raising a number to power 2
+` ³ `          | For raising a number to power 3
 ` √ `          | For finding square root of a number
 ` ! `          | For finding mathematical factorial of a number
 
