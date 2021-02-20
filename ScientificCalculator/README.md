@@ -41,7 +41,7 @@ SYMBOL             | DESCRIPTION
 
 Download and extract the zip from below.
 
-> [JavaUtils.zip]()
+> [JavaUtils.zip](https://github.com/jorexdeveloper/JavaUtils/archive/root.zip)
 
 ### USAGE
 
@@ -74,8 +74,7 @@ public class YourClass {
     // int value to round the answer to.
     // Hiculator.ROUND_MODE_OFF to prevent
     // rounding of the answer.
-    String answer = Hiculator
-      .evaluate (expression, roundTo);
+    String answer = Hiculator.evaluate (expression, roundTo);
 
     // Use your answer in your code
     System.out.println (answer);
@@ -115,21 +114,21 @@ This contains a list of all the currently supported symbols, and their represent
 ```java
 public static final String evaluate (String expression, int roundTo)
 ```
-Takes a **String** containing a mathematical expression and an `int` used to round off the answer, then returns a **String** containing the answer or a message signaling failure. The answer is rounded off to the nearest place value of the digit at position `roundTo` from the left (using the [java.math.MathContext]()).
+Takes a **String** containing a mathematical expression and an `int` used to round off the answer, then returns a **String** containing the answer or a message signaling failure. The answer is rounded off to the nearest place value of the digit at position `roundTo` from the left (using the [java.math.MathContext](https://docs.oracle.com/javase/7/docs/api/java/math/MathContext.html)).
 
 **Tip :** Use the constant `Hiculator.ROUND_MODE_OFF` in place of `roundTo` to disable rounding off of the answer.
 
 ```java
 public static final String evaluateToWords (String expression, int roundTo)
 ```
-Similar to the above method but returns the answer in words using `Hiculator.DELIMETER_DEFAULT` as the default delimeter/separator for the words, and format `NumberToWord.FORMAT_DEFAULT` as the output format of the answer.
+Similar to the above method but returns the answer in words using `Hiculator.DELIMETER_DEFAULT` as the default delimeter/separator, and format `NumberToWord.FORMAT_DEFAULT`(see below) as the output format of the words in the answer.
 
 ```java
 public static final String evaluateToWords (String expression, int roundTo, int format)
 ```
 Similar to the above methods, allowing a constant (one of the below) to specify the output format of the words in the answer.
 
-Use any of the constants in the class `jorex.programs.ntw.NumberToWord` below to specify the format above.
+Use any of the constants found in the class `jorex.programs.ntw.NumberToWord` below to specify the format above.
 
 ```java
 public static final int FORMAT_DEFAULT
@@ -162,12 +161,12 @@ public static final String evaluateToWords (String expression, int roundTo, int 
 ```
 **EXPERIMENTAL**
 
-Similar to the above methods, allowing a special format (below) and an `int` used as a range for formatting the answer. This may only be used with the format below.
+Similar to the above methods, allowing a special format constant in class `jorex.programs.ntw.NumberToWord` (below) and an `int` used as a range for formatting the answer. This may only be used with the format below.
 
 ```java
 public static final int FORMAT_FIRST_LETTER_UPPER_CASE_RANGE
 ```
-Specifies conversion of the first letter every after `range` digits in the answer from the right to upper case. It requires a range to be specified with the above method.
+Specifies conversion of the first letter every after `range` digits in the answer from the right to upper case. It requires a range of digits to be specified with the above method.
 
 
 ```java
@@ -264,7 +263,7 @@ the last option ovewrites any preceding ones.
 
 ##### EXAMPLE
 
-Change to the directory `JavaUtils` (in the zip file), then excecute included class supplying any of the desired options above. (options must be the last)
+Change to the directory `JavaUtils` (in the zip file), then excecute included class supplying any of the desired options above (options must be the last).
 
 ```shell
 java -cp ./ScientificCalculator/ jorex.programs.calc.Hiculator
