@@ -5,7 +5,7 @@ Useful Java Utility Programs.
 
 #### Programs
 
-##### [Scientific Calculator](https://github.com/jorexdeveloper/JavaUtils/tree/root/ScientificCalculator)
+##### [Scientific Calculator](https://jorexdeveloper.github.io/JavaUtils/ScientificCalculator/)
 
 A program to evaluate/solve mathematical expressions using **BODMAS**. This program can be used both with the command line and in java code.
 
