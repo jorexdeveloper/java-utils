@@ -201,7 +201,7 @@ java -jar jorexcalc,jar
 
 Thre are different options that you can use together with the above command, here is a full list of the available command line options.
 
-```shell
+```
  Usage: [command] [options] [expressions...]                         
 
  Evaluate/solve (a) mathematical expression(s) using BODMAS.         
