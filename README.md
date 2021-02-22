@@ -3,7 +3,7 @@ JavaUtils
 
 Useful Java Utility Programs.
 
-#### Programs
+#### Programs include:
 
 ##### [Scientific Calculator](https://jorexdeveloper.github.io/JavaUtils/ScientificCalculator/)
 

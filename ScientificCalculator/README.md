@@ -49,7 +49,7 @@ You can use this program both in your code and with the command line (requires a
 
 #### CODE
 
-To use this class in your java project, you **MUST** add the path `.../ScientificCalculator/` to your class path replacing `...` with the path to the the directory `ScientificCalculator` found in the zip file in order to add the class to your project.
+To use this class in your java project, you **MUST ADD** the path `.../ScientificCalculator/` or `.../ScientificCalculator/jorexcalc.jar` to your class path replacing `...` with the path to the the directory `ScientificCalculator` found in the zip file in order to add the class to your project.
 
 ##### SYNTAX
 
@@ -66,13 +66,13 @@ public class YourClass {
     // Number of digits to round the
     // answer to.
     // Use Hiculator.ROUND_MODE_OFF
-    // To prevent rounding off
+    // To disable rounding off
     int roundTo = 6;
 
     // Invoke the static method
     // evaluate with the expression and
     // int value to round the answer to.
-    // Hiculator.ROUND_MODE_OFF to prevent
+    // Hiculator.ROUND_MODE_OFF to disable
     // rounding of the answer.
     String answer = Hiculator.evaluate (expression, roundTo);
 
@@ -225,39 +225,37 @@ Options include:
   -d, --delimeter=<string>                                             
                     Used with -w to specify 'string' as  a delimeter/  
                     separator for the words.                           
-  -1, --format-all-uppercase                                           
+  -A, --format-all-uppercase                                           
                     Used with -w to convert all the words to uppercase.
-  -2, --format-first-letter-uppercase                                  
+  -a, --format-first-letter-uppercase                                  
                     Used with -w to convert only the first letter of   
                     the first word to uppercase.                       
-  -3, ---format-first-letter-uppercase-all                             
+  -e, ---format-first-letter-uppercase-all                             
                     Used with -w to convert the first letter of each   
                     word to uppercase.                                 
   -f, --format-first-letter-uppercase-range=<range>                    
                     Used with -w to convert the first letter of each   
                     word after 'range' digits in the answer from the   
-                    right to uppercase (Experimental)                  
+                    right to uppercase (Experimental).                 
   -h, --help                                                           
                     Print this message end exit.                       
   -l, --list                                                           
                     Print a list of supported operations and symbols   
                     and exit.                                        
 
- The answers to the supplied expressions are all output to System.out  
+  The answers to the supplied expressions are all output to System.out 
 in the order in which they are supplied, using the specified format if 
-if any. If none are supplied as arguments they are read from           
-System.in.                                                           
-
- Note: Unfortunately, concatenation of short commands e.g -wrd1f is    
-       currently not supported and will be interpreted as an expression
-       resolving to a Syntax error!                                    
- All mandatory arguments for short options are mandatory for long      
+if any. If none are supplied as arguments they are read from System.in.
+  Combining of short options e.g [-wrdA [args]] is allowed and all     
+arguments for the combined options (if any) must immediately follow the
+combined options in their respective order.                            
+  All mandatory arguments for short options are mandatory for long     
 options too.                                                           
- All supplied arguments excluding the above are considered to be       
+  All supplied arguments excluding the above are considered to be      
 expressions.                                                           
- By default, if -w specified without any formats, the output is all    
+  By default, if -w specified without any formats, the output is all   
 converted to lower case.                                               
- Incase multiple options resolving to the same function are supplied,  
+  Incase multiple options resolving to the same function are supplied, 
 the last option ovewrites any preceding ones.                          
 ```
 
@@ -286,7 +284,7 @@ java -cp ./ScientificCalculator/ jorex.programs.calc.Hiculator --words --round-o
 or with jar as...
 
 ```
-java -jar ./ScientificCalculator/jorexcalc.jar --words --round-off=6 --delimeter='--' --format-first-letter-uppercase-all 6÷2\(1+1\) 3³+2*3+6²\(49/67\)³-10!
+java -jar ./ScientificCalculator/jorexcalc.jar -wrde 6 '--' 6÷2\(1+1\) 3³+2*3+6²\(49/67\)³-10!
 ```
 
 **Tip :** Do not forget to escape any command line characters e.g replace `(` with `\(`. 
@@ -297,7 +295,7 @@ java -jar ./ScientificCalculator/jorexcalc.jar --words --round-off=6 --delimeter
 
 ```
     Copyright © 2021 Jore
-
+n
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -310,4 +308,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-

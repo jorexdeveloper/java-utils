@@ -44,37 +44,36 @@ public class Hiculator {
   .append ("  -d, --delimeter=<string>                                             \n")
   .append ("                    Used with -w to specify 'string' as  a delimeter/  \n")
   .append ("                    separator for the words.                           \n")
-  .append ("  -1, --format-all-uppercase                                           \n")
+  .append ("  -A, --format-all-uppercase                                           \n")
   .append ("                    Used with -w to convert all the words to uppercase.\n")
-  .append ("  -2, --format-first-letter-uppercase                                  \n")
+  .append ("  -a, --format-first-letter-uppercase                                  \n")
   .append ("                    Used with -w to convert only the first letter of   \n")
   .append ("                    the first word to uppercase.                       \n")
-  .append ("  -3, ---format-first-letter-uppercase-all                             \n")
+  .append ("  -e, ---format-first-letter-uppercase-all                             \n")
   .append ("                    Used with -w to convert the first letter of each   \n")
   .append ("                    word to uppercase.                                 \n")
   .append ("  -f, --format-first-letter-uppercase-range=<range>                    \n")
   .append ("                    Used with -w to convert the first letter of each   \n")
   .append ("                    word after 'range' digits in the answer from the   \n")
-  .append ("                    right to uppercase (Experimental)                  \n")
+  .append ("                    right to uppercase (Experimental).                 \n")
   .append ("  -h, --help                                                           \n")
   .append ("                    Print this message end exit.                       \n")
   .append ("  -l, --list                                                           \n")
   .append ("                    Print a list of supported operations and symbols   \n")
   .append ("                    and exit.                                        \n\n")
-  .append (" The answers to the supplied expressions are all output to System.out  \n")
+  .append ("  The answers to the supplied expressions are all output to System.out \n")
   .append ("in the order in which they are supplied, using the specified format if \n")
-  .append ("if any. If none are supplied as arguments they are read from           \n")
-  .append ("System.in.                                                           \n\n")
-  .append (" Note: Unfortunately, concatenation of short commands e.g -wrd1f is    \n")
-  .append ("       currently not supported and will be interpreted as an expression\n")
-  .append ("       resolving to a Syntax error!                                    \n")
-  .append (" All mandatory arguments for short options are mandatory for long      \n")
+  .append ("if any. If none are supplied as arguments they are read from System.in.\n")
+  .append ("  Combining of short options e.g [-wrdA [args]] is allowed and all     \n")
+  .append ("arguments for the combined options (if any) must immediately follow the\n")
+  .append ("combined options in their respective order.                            \n")
+  .append ("  All mandatory arguments for short options are mandatory for long     \n")
   .append ("options too.                                                           \n")
-  .append (" All supplied arguments excluding the above are considered to be       \n")
+  .append ("  All supplied arguments excluding the above are considered to be      \n")
   .append ("expressions.                                                           \n")
-  .append (" By default, if -w specified without any formats, the output is all    \n")
+  .append ("  By default, if -w specified without any formats, the output is all   \n")
   .append ("converted to lower case.                                               \n")
-  .append (" Incase multiple options resolving to the same function are supplied,  \n")
+  .append ("  Incase multiple options resolving to the same function are supplied, \n")
   .append ("the last option ovewrites any preceding ones.                          \n")
   .toString ();
 
@@ -150,11 +149,11 @@ public class Hiculator {
           System.out.printf (prompt, arg.split ("=") [0].replace ("=", ""), "String");
           return;
         }
-      else if (arg.equals ("-1") || arg.equals ("--format-all-uppercase"))
+      else if (arg.equals ("-A") || arg.equals ("--format-all-uppercase"))
         format = FORMAT_ALL_UPPERCASE;
-      else if (arg.equals ("-2") || arg.equals ("--format-first-letter-uppercase"))
+      else if (arg.equals ("-a") || arg.equals ("--format-first-letter-uppercase"))
         format = FORMAT_FIRST_LETTER_UPPER_CASE;
-      else if (arg.equals ("-3") || arg.equals ("--format-first-letter-uppercase-all"))
+      else if (arg.equals ("-e") || arg.equals ("--format-first-letter-uppercase-all"))
         format = FORMAT_FIRST_LETTER_UPPER_CASE_ALL;
       else if (arg.equals ("-f"))
         try {
@@ -162,7 +161,7 @@ public class Hiculator {
           range = Integer.parseInt (args [++i]);
         }
         catch (Throwable t) {
-          System.out.printf (prompt, arg.split ("=") [0].replace ("=", ""), "int");
+          System.out.printf (prompt, arg, "int");
           return;
         }
       else if (arg.startsWith ("--format-first-letter-uppercase-range"))
@@ -183,6 +182,69 @@ public class Hiculator {
         System.out.println (SYMBOLS);
         return;
       }
+      else if (arg.startsWith ("-")) {
+        boolean isExp = true;
+        for (char c : arg.substring (1).toCharArray ()) {
+          switch (c) {
+            case 'w':
+              isExp = false;
+              toWords = true;
+              continue;
+            case 'r':
+              isExp = false;
+              try {
+                roundTo = Integer.parseInt (args [++i]);
+              }
+              catch (Throwable t) {
+                System.out.printf (prompt, "-r", "int");
+                return;
+              }
+              continue;
+            case 'd':
+              isExp = false;
+              try {
+                delimeter = args [++i];
+              }
+              catch (Throwable t) {
+                System.out.printf (prompt, "-d", "String");
+                return;
+              }
+              continue;
+            case 'A':
+              isExp = false;
+              format = FORMAT_ALL_UPPERCASE;
+              continue;
+            case 'a':
+              isExp = false;
+              format = FORMAT_FIRST_LETTER_UPPER_CASE;
+              continue;
+            case 'e':
+              isExp = false;
+              format = FORMAT_FIRST_LETTER_UPPER_CASE_ALL;
+              continue;
+            case 'f':
+              isExp = false;
+              try {
+                format = FORMAT_FIRST_LETTER_UPPER_CASE_RANGE;
+                range = Integer.parseInt (args [++i]);
+              }
+              catch (Throwable t) {
+                System.out.printf (prompt, "-f", "int");
+                return;
+              }
+              continue;
+            case 'h':
+              System.out.println (USAGE_COMMAND_LINE);
+              return;
+            case 'l':
+              System.out.println (OPERATIONS);
+              System.out.println (SYMBOLS);
+              return;
+          }
+          if (isExp)
+            expressions.add (arg);
+        }
+      }
       else
         expressions.add (arg);
     }
@@ -197,7 +259,7 @@ public class Hiculator {
 
       try (Scanner sc = new Scanner (System.in)) {
         while (true) {
-          System.out.print (" Expression: ");
+          System.out.print (" > ");
           String expr;
 
           if (sc.hasNext ()) {
@@ -206,7 +268,7 @@ public class Hiculator {
             if (expr.equalsIgnoreCase ("q"))
               break;
             else
-              System.out.printf ("\t= %s\n\n", toWords ? evaluateToWords (expr, roundTo, delimeter, format, range) : evaluate (expr, roundTo));
+              System.out.printf ("\n %s = %s\n\n", expr, toWords ? evaluateToWords (expr, roundTo, delimeter, format, range) : evaluate (expr, roundTo));
           }
           else {
             System.out.println ();
@@ -217,7 +279,7 @@ public class Hiculator {
     }
     else
       for (String expr : expressions)
-        System.out.printf (" %s = %s\n", expr, toWords ? evaluateToWords (expr, roundTo, delimeter, format, range) : evaluate (expr, roundTo));
+        System.out.printf ("\n %s = %s\n", expr, toWords ? evaluateToWords (expr, roundTo, delimeter, format, range) : evaluate (expr, roundTo));
   }
 
   public static final BigDecimal getAns () {
@@ -372,7 +434,6 @@ public class Hiculator {
 
 //    * Add new methods added in the
 //      program here responsibly.
-
 //    * At least all expressions that
 //      are considered as one number eg 
 //      [ 2² ],above,...
@@ -389,7 +450,6 @@ public class Hiculator {
 //    * Don't forget to add some
 //      of those symbols to the last
 //      group of the above regex.
-
 //    * This is to enable brackets be
 //      grouped together with them. eg
 //      [ 2(1+1)² ],etc...
