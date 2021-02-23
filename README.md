@@ -5,9 +5,11 @@ This repository contains some useful java utility programs.
 
 ### PROGRAMS
 
+---
+
 ### [Scientific Calculator](https://jorexdeveloper.github.io/JavaUtils/ScientificCalculator/)
 
-A program to evaluate/solve mathematical expressions using **BODMAS**. This program can be used both with the command line and in java code.
+A program to evaluate/solve mathematical expressions.
 
 #### FEATURES
 
@@ -16,17 +18,35 @@ A program to evaluate/solve mathematical expressions using **BODMAS**. This prog
 * Supports output of answer in words.
 * Stores answer to the previous successful evaluation.
 
+> This program can be used both in code and with the command line (requires at least jre installed).
+
 ---
 
 ### [Reflector](https://jorexdeveloper.github.io/JavaUtils/Reflector/)
 
-A program to print the details of java classes using reflection. This program can be used both with the command line and in java code.
+A program to print the details of java classes using reflection.
 
 ### FEATURES
 
 * Full Generic Support
 * Organized output
 * Detailed information
+
+> This program can be used both in java code and with the command line (requires at least jre installed).
+
+---
+
+### [BrainfuckIntereter](https://jorexdeveloper.github.io/JavaUtils/BrainfuckInterpreter/)
+
+A program to interpret brainfuck code.
+
+### FEATURES
+
+* Supports a custom null in character.
+* Supports a custom null out character.
+* Full brainfuck support.
+
+> This program can be used both in code and with the command line (requires at least jre installed).
 
 ---
 
