@@ -114,7 +114,7 @@ This contains a list of all the currently supported symbols, and their represent
 ```java
 public static final String evaluate (String expression, int roundTo)
 ```
-Takes a **String** containing a mathematical expression and an `int` used to round off the answer, then returns a **String** containing the answer or a message signaling failure. The answer is rounded off to the nearest place value of the digit at position `roundTo` from the left (using the [java.math.MathContext](https://docs.oracle.com/javase/7/docs/api/java/math/MathContext.html)).
+Takes a `String` containing a mathematical expression and an `int` used to round off the answer, then returns a `String` containing the answer or a message signaling failure. The answer is rounded off to the nearest place value of the digit at position `roundTo` from the left (using the [java.math.MathContext](https://docs.oracle.com/javase/7/docs/api/java/math/MathContext.html)).
 
 **Tip :** Use the constant `Hiculator.ROUND_MODE_OFF` in place of `roundTo` to disable rounding off of the answer.
 
@@ -194,7 +194,7 @@ java [ -cp <class path> ] jorex.programs.calc.Hiculator
 or
 
 ```shell
-java -jar jorexcalc,jar
+java -jar jorexcalc.jar
 ```
 
 ##### OPTIONS
@@ -256,7 +256,7 @@ expressions.
   By default, if -w specified without any formats, the output is all   
 converted to lower case.                                               
   Incase multiple options resolving to the same function are supplied, 
-the last option ovewrites any preceding ones.                          
+the last option overwrites any preceding ones.                          
 ```
 
 ##### EXAMPLE
@@ -295,7 +295,7 @@ java -jar ./ScientificCalculator/jorexcalc.jar -wrde 6 '--' 6÷2\(1+1\) 3³+2*3+
 
 ```
     Copyright © 2021 Jore
-n
+
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at

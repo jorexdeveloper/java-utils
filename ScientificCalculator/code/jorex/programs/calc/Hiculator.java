@@ -74,7 +74,7 @@ public class Hiculator {
   .append ("  By default, if -w specified without any formats, the output is all   \n")
   .append ("converted to lower case.                                               \n")
   .append ("  Incase multiple options resolving to the same function are supplied, \n")
-  .append ("the last option ovewrites any preceding ones.                          \n")
+  .append ("the last option overwrites any preceding ones.                          \n")
   .toString ();
 
   public static final String OPERATIONS = new StringBuffer ()
