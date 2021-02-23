@@ -1,4 +1,4 @@
-Reflector
+REFLECTOR
 ---------
 
 Program to view details of java classes using reflection.

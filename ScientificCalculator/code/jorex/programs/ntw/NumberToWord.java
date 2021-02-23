@@ -5,11 +5,11 @@ import java.util.Scanner;
 import java.util.StringJoiner;
 
 /**
- * Converts numbers to words...
+ * Program to convert numbers to words...
  *
  * @version 1.0
  *
- * @author Jore-X
+ * @author Jore
  */
 public class NumberToWord {
 

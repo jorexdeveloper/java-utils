@@ -17,9 +17,8 @@ import static jorex.programs.ntw.NumberToWord.*;
 /**
  * Program to solve/evaluate mathematical expressions using BODMAS.
  *
- * @author Jore
- *
  * @version 1.0
+ * @author Jore
  */
 public class Hiculator {
 
@@ -61,9 +60,10 @@ public class Hiculator {
   .append ("  -l, --list                                                           \n")
   .append ("                    Print a list of supported operations and symbols   \n")
   .append ("                    and exit.                                        \n\n")
-  .append ("  The answers to the supplied expressions are all output to System.out \n")
-  .append ("in the order in which they are supplied, using the specified format if \n")
-  .append ("if any. If none are supplied as arguments they are read from System.in.\n")
+  .append ("  The answers to the supplied expressions are all printed to System.out\n")
+  .append ("in the order in which they are supplied, using the specified format (if\n")
+  .append ("any). If no expressions are supplied as arguments they are read from   \n")
+  .append ("System.in.                                                             \n")
   .append ("  Combining of short options e.g [-wrdA [args]] is allowed and all     \n")
   .append ("arguments for the combined options (if any) must immediately follow the\n")
   .append ("combined options in their respective order.                            \n")
@@ -114,16 +114,8 @@ public class Hiculator {
     for (int i = 0; i < args.length; i++) {
       String arg = args [i];
 
-      if (arg.equals ("-w") || arg.equals ("--words"))
+      if (arg.equals ("--words"))
         toWords = true;
-      else if (arg.equals ("-r"))
-        try {
-          roundTo = Integer.parseInt (args [++i]);
-        }
-        catch (Throwable t) {
-          System.out.printf (prompt, arg, "int");
-          return;
-        }
       else if (arg.startsWith ("--round-off")) {
         try {
           roundTo = Integer.parseInt (arg.split ("=") [1]);
@@ -133,14 +125,6 @@ public class Hiculator {
           return;
         }
       }
-      else if (arg.equals ("-d"))
-        try {
-          delimeter = args [++i];
-        }
-        catch (Throwable t) {
-          System.out.printf (prompt, arg, "String");
-          return;
-        }
       else if (arg.startsWith ("--delimeter"))
         try {
           delimeter = arg.split ("=") [1];
@@ -149,21 +133,12 @@ public class Hiculator {
           System.out.printf (prompt, arg.split ("=") [0].replace ("=", ""), "String");
           return;
         }
-      else if (arg.equals ("-A") || arg.equals ("--format-all-uppercase"))
+      else if (arg.equals ("--format-all-uppercase"))
         format = FORMAT_ALL_UPPERCASE;
-      else if (arg.equals ("-a") || arg.equals ("--format-first-letter-uppercase"))
+      else if (arg.equals ("--format-first-letter-uppercase"))
         format = FORMAT_FIRST_LETTER_UPPER_CASE;
-      else if (arg.equals ("-e") || arg.equals ("--format-first-letter-uppercase-all"))
+      else if (arg.equals ("--format-first-letter-uppercase-all"))
         format = FORMAT_FIRST_LETTER_UPPER_CASE_ALL;
-      else if (arg.equals ("-f"))
-        try {
-          format = FORMAT_FIRST_LETTER_UPPER_CASE_RANGE;
-          range = Integer.parseInt (args [++i]);
-        }
-        catch (Throwable t) {
-          System.out.printf (prompt, arg, "int");
-          return;
-        }
       else if (arg.startsWith ("--format-first-letter-uppercase-range"))
         try {
           format = FORMAT_FIRST_LETTER_UPPER_CASE_RANGE;
@@ -173,11 +148,11 @@ public class Hiculator {
           System.out.printf (prompt, arg.split ("=") [0].replace ("=", ""), "int");
           return;
         }
-      else if (arg.equals ("-h") || arg.equals ("--help")) {
+      else if (arg.equals ("--help")) {
         System.out.println (USAGE_COMMAND_LINE);
         return;
       }
-      else if (arg.equals ("-l") || arg.equals ("--list")) {
+      else if (arg.equals ("--list")) {
         System.out.println (OPERATIONS);
         System.out.println (SYMBOLS);
         return;

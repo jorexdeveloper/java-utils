@@ -113,34 +113,29 @@ public final class Reflector {
     for (int j = 0; j < args.length; j++) {
       String arg = args [j];
 
-      if (arg.equals ("-A") || arg.equals ("--all"))
+      if (arg.equals ("--all"))
         A = true;
-      else if (arg.equals ("-a") || arg.equals ("--almost-all"))
+      else if (arg.equals ("--almost-all"))
         a = true;
-      else if (arg.equals ("-d") || arg.equals ("--declaration"))
+      else if (arg.equals ("--declaration"))
         d = true;
-      else if (arg.equals ("-f") || arg.equals ("--fields"))
+      else if (arg.equals ("--fields"))
         f = true;
-      else if (arg.equals ("-c") || arg.equals ("--constructors"))
+      else if (arg.equals ("--constructors"))
         c = true;
-      else if (arg.equals ("-m") || arg.equals ("--methods"))
+      else if (arg.equals ("--methods"))
         m = true;
-      else if (arg.equals ("-i") || arg.equals ("--inner-classes"))
+      else if (arg.equals ("--inner-classes"))
         i = true;
-      else if (arg.equals ("-s") || arg.equals ("--super"))
+      else if (arg.equals ("--super"))
         s = true;
-      else if (arg.equals ("-I") || arg.equals ("--info"))
+      else if (arg.equals ("--info"))
         I = true;
-      else if (arg.equals ("-t") || arg.equals ("--time"))
+      else if (arg.equals ("--time"))
         t = true;
-      else if (arg.equals ("-h") || arg.equals ("--help")) {
+      else if (arg.equals ("--help")) {
         System.out.println (USAGE_COMMAND_LINE);
         return;
-      }
-      else if (arg.equals ("-F")) {
-        F = true;
-        if ((args.length - j) > 1)
-          fileName = args [++j];
       }
       else if (arg.startsWith ("--file")) {
         F = true;
@@ -151,79 +146,64 @@ public final class Reflector {
       }
       else if (arg.startsWith ("--indent"))
         try {
-          StringBuffer b = new StringBuffer ();
-          for (int k = Integer.parseInt (arg.split ("=") [1]); k > 0; k--)
-            b.append (' ');
-          indent = b.toString ();
+          indent (Integer.parseInt (arg.split ("=") [1]));
         }
         catch (Throwable th) {
-          System.out.println (" E: Option --indent requires an int argument.");
+          System.out.println (" E: Option '--indent' requires an int argument.");
           return;
         }
-      else if (arg.charAt (0) == '-') {
-        boolean isClass = true;
-        for (char ch: arg.substring (1).toCharArray ()) {
+      else if (arg.charAt (0) == '-')
+        for (char ch: arg.substring (1).toCharArray ())
           if (Character.isDigit (ch)) {
-            isClass = false;
             indent (Integer.parseInt (Character.toString (ch)));
             continue;
           }
           else
             switch (ch) {
               case 'A':
-                isClass = false;
                 A = true;
                 continue;
               case 'a':
-                isClass = false;
                 a = true;
                 continue;
               case 'd':
-                isClass = false;
                 d = true;
                 continue;
               case 'f':
-                isClass = false;
                 f = true;
                 continue;
               case 'c':
-                isClass = false;
                 c = true;
                 continue;
               case 'm':
-                isClass = false;
                 m = true;
                 continue;
               case 'i':
-                isClass = false;
                 i = true;
                 continue;
               case 's':
-                isClass = false;
                 s = true;
                 continue;
               case 'I':
-                isClass = false;
                 I = true;
                 continue;
               case 'F':
-                isClass = false;
                 F = true;
                 if ((args.length - j) > 1)
                   fileName = args [++j];
                 continue;
               case 't':
-                isClass = false;
                 t = true;
                 continue;
               case 'h':
                 System.out.println (USAGE_COMMAND_LINE);
                 return;
+              case '-':
+                continue;
+              default:
+                System.out.printf (" E: Unknown option '-%s'.\n Use '-h' or '--help' for more information.\n", ch);
+                return;
             }
-        }
-        if (isClass)
-          classNames.add (arg);
-      }
       else
         classNames.add (arg);
     }

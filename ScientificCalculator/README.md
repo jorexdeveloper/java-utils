@@ -72,8 +72,8 @@ public class YourClass {
     // Invoke the static method
     // evaluate with the expression and
     // int value to round the answer to.
-    // Hiculator.ROUND_MODE_OFF to disable
-    // rounding of the answer.
+    // Use Hiculator.ROUND_MODE_OFF to
+    // disable rounding of the answer.
     String answer = Hiculator.evaluate (expression, roundTo);
 
     // Use your answer in your code
@@ -128,7 +128,7 @@ public static final String evaluateToWords (String expression, int roundTo, int 
 ```
 Similar to the above methods, allowing a constant (one of the below) to specify the output format of the words in the answer.
 
-Use any of the constants found in the class `jorex.programs.ntw.NumberToWord` below to specify the format above.
+Use any of the below constants found in the class `jorex.programs.ntw.NumberToWord` below to specify the format above.
 
 ```java
 public static final int FORMAT_DEFAULT
@@ -150,7 +150,6 @@ public static final int FORMAT_FIRST_LETTER_UPPER_CASE_ALL
 ```
 Specifies conversion of the first letter of each word to be converted to upper case.
 
-
 ```java
 public static final String evaluateToWords (String expression, int roundTo, String delimeter)
 ```
@@ -167,7 +166,6 @@ Similar to the above methods, allowing a special format constant in class `jorex
 public static final int FORMAT_FIRST_LETTER_UPPER_CASE_RANGE
 ```
 Specifies conversion of the first letter every after `range` digits in the answer from the right to upper case. It requires a range of digits to be specified with the above method.
-
 
 ```java
 public static final String evaluateToWords (String expression, int roundTo, String delimeter, int format)
@@ -243,9 +241,10 @@ Options include:
                     Print a list of supported operations and symbols   
                     and exit.                                        
 
-  The answers to the supplied expressions are all output to System.out 
-in the order in which they are supplied, using the specified format if 
-if any. If none are supplied as arguments they are read from System.in.
+  The answers to the supplied expressions are all printed to System.out
+in the order in which they are supplied, using the specified format (if
+any). If no expressions are supplied as arguments they are read from   
+System.in.                                                             
   Combining of short options e.g [-wrdA [args]] is allowed and all     
 arguments for the combined options (if any) must immediately follow the
 combined options in their respective order.                            
@@ -280,7 +279,6 @@ Alternatively, you can supply expressions and any of the above command line opti
 ```shell
 java -cp ./ScientificCalculator/ jorex.programs.calc.Hiculator --words --round-off=6 --delimeter='--' --format-first-letter-uppercase-all 6÷2\(1+1\) 3³+2*3+6²\(49/67\)³-10!
 ```
-
 or with jar as...
 
 ```
@@ -288,6 +286,8 @@ java -jar ./ScientificCalculator/jorexcalc.jar -wrde 6 '--' 6÷2\(1+1\) 3³+2*3+
 ```
 
 **Tip :** Do not forget to escape any command line characters e.g replace `(` with `\(`. 
+
+---
 
 #### Author : Jore
 

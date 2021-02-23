@@ -3,20 +3,36 @@ JavaUtils
 
 This repository contains some useful java utility programs.
 
-#### Programs include:
+### PROGRAMS
 
-##### [Scientific Calculator](https://jorexdeveloper.github.io/JavaUtils/ScientificCalculator/)
+### [Scientific Calculator](https://jorexdeveloper.github.io/JavaUtils/ScientificCalculator/)
 
 A program to evaluate/solve mathematical expressions using **BODMAS**. This program can be used both with the command line and in java code.
 
-##### [Reflector](https://jorexdeveloper.github.io/JavaUtils/Reflector/)
+#### FEATURES
+
+* Works with large decimals.
+* Supports mathematical constants.
+* Supports output of answer in words.
+* Stores answer to the previous successful evaluation.
+
+---
+
+### [Reflector](https://jorexdeveloper.github.io/JavaUtils/Reflector/)
 
 A program to print the details of java classes using reflection. This program can be used both with the command line and in java code.
+
+### FEATURES
+
+* Full Generic Support
+* Organized output
+* Detailed information
+
+---
 
 #### Author : Jore
 
 #### License
-
 ```
     Copyright © 2021 Jore
 
