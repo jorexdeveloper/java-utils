@@ -14,8 +14,8 @@ Program to evaluate/solve mathematical expressions using **BODMAS**.
 
 OPERATION      | DESCRIPTION
 ---------------|----------------------------------------------------------
-` ÷ ` or ` / ` | For division
-` × ` or ` * ` | For multiplication
+` ÷  or  / `   | For division
+` ×  or  * `   | For multiplication
 ` + `          | For addition
 ` - `          | For subtraction
 ` ² `          | For raising a number to power 2
@@ -34,8 +34,8 @@ and any value higher than `50` will resolve to a **Math error!**.
 
 SYMBOL             | DESCRIPTION
 -------------------|----------------------------------------------------------------
-` π ` or ` Π `     | Replaced with the mathematical constant **PI**
-` ANS ` or ` ans ` | Replaced with the answer to the previous successful evaluation, or `0` if none
+` π     or   Π  `  | Replaced with the mathematical constant **PI**
+` ANS   or  ans `  | Replaced with the answer to the previous successful evaluation, or `0` if none
 
 ### INSTALLATION
 
