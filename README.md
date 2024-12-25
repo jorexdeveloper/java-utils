@@ -1,5 +1,19 @@
-JavaUtils
----------
+<h1 align="center" style="color:#C9D1D9;">JAVA UTILS</h1>
+
+<p align="center">
+	<a href="https://github.com/jorexdeveloper/java-utils/stargazers">
+		<img
+			src="https://img.shields.io/github/stars/jorexdeveloper/java-utils?colorA=0D1117&colorB=58A6FF&style=for-the-badge">
+	</a>
+	<a href="https://github.com/jorexdeveloper/java-utils/issues">
+		<img
+			src="https://img.shields.io/github/issues/jorexdeveloper/java-utils?colorA=0D1117&colorB=F85149&style=for-the-badge">
+	</a>
+	<a href="https://github.com/jorexdeveloper/java-utils/contributors">
+		<img
+			src="https://img.shields.io/github/contributors/jorexdeveloper/java-utils?colorA=0D1117&colorB=2EA043&style=for-the-badge">
+	</a>
+</p>
 
 This repository contains some useful java utility programs.
 
